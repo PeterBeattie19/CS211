@@ -5,40 +5,25 @@ import java.security.NoSuchAlgorithmException;
 
 class Main {
   public static void main(String[] args)throws NoSuchAlgorithmException {
-    //public VeLUxsKj5iHXWD8RHYHeg3PR2zKkZaZmuw
+    //public Key VeLUxsKj5iHXWD8RHYHeg3PR2zKkZaZmuw
 
     
-    String result ="80" + genRandomHex(); 
-    //System.out.println(result); 
+    String result ="80" + genRandomHex(); //Generate 64 digit random hexadecimal string and append "80" onto the front
+    
     SHA256 sha = new SHA256(); 
     
-    String preHash = result; 
+    String preHash = result; //Remember the original string (the 64 digit hexadecimal with 80 @ the front). 
     
-    result = sha.sha256(result); 
+    result = sha.sha256(result); // First hash, store it in the string result 
+         
+    result = sha.sha256(result); //Second hash. 
+          
+    String firstEight = result.substring(0,8); // take first 8 digits of the doubly hashed hexadecimal stirng. 
     
-     //System.out.println(result); 
-     
-     result = sha.sha256(result); 
-     
-     //System.out.println(result); 
-     
-     String firstEight = result.substring(0,8); 
-    
-    preHash += firstEight; 
-    
-    //preHash += firstEight; 
-    
-    //System.out.println(preHash); 
-    
-    //BigInteger dec = hexadecimalToDecimal(preHash); 
-     //BigInteger n = new BigInteger(Integer.toString(Integer.parseInt(preHash, 16)));
-
-   // System.out.println(encode(n.toString())); 
+    preHash += firstEight; //append the first eight digits onto the end of our original 64 digits headecimal string with "80" at the front
    
-   //System.out.println(hexadecimalToDecimal(preHash));
-   
-   BigInteger n = new BigInteger(preHash, 16); 
-   System.out.println(base58(n));
+   BigInteger n = new BigInteger(preHash, 16); //Create a new Big Integer with an initial value of the prehash string converted to hexadecimal. 
+   System.out.println(base58(n)); //Print the base  58 conversion of the BigInteger n. 
    
   }
   
@@ -47,25 +32,26 @@ class Main {
 
     
   static String base58(BigInteger n){
-    String aplphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"; 
-    String result = ""; 
-    while(n.compareTo(new BigInteger("58")) > 0){
-      //int mod = n % 58; 
-      BigInteger mod = n.mod(new BigInteger("58")); 
+    String aplphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";  //Look up table
+    String result = ""; //Where we store our result 
+    while(n.compareTo(new BigInteger("58")) > 0){ //while n is greater than 58 
       
-      result = aplphabet.charAt(mod.intValue()) + result; 
+      BigInteger mod = n.mod(new BigInteger("58")); //Divide 58 into the string and get the remainder 
       
-      //n = n / 58;
-      n = n.divide(new BigInteger("58")); 
+      result = aplphabet.charAt(mod.intValue()) + result; //look up the character at position "mod", and append it onto the end of the result string
+      
+      n = n.divide(new BigInteger("58")); //Re-assign n to be n/58; 
     }
     
-    if(n.compareTo(new BigInteger("0")) > 0){
+    if(n.compareTo(new BigInteger("0")) > 0){ //if n is not zero then just look up the character at position "n" and append it onto result.
       result = aplphabet.charAt(n.intValue()) + result; 
     }
     
     return result; 
   }
   
+  
+  //PHIL CODE 
   public static String genRandomHex(){
     Random ran = new Random();
     char character[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
