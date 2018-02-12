@@ -14,10 +14,8 @@ class Main {
     
     String preHash = result; //Remember the original string (the 64 digit hexadecimal with 80 @ the front). 
     
-    result = sha.sha256(result); // First hash, store it in the string result 
-         
-    result = sha.sha256(result); //Second hash. 
-          
+    result = sha.sha256(sha.sha256(result)); // First and second hash, store it in the string result 
+                   
     String firstEight = result.substring(0,8); // take first 8 digits of the doubly hashed hexadecimal stirng. 
     
     preHash += firstEight; //append the first eight digits onto the end of our original 64 digits headecimal string with "80" at the front
