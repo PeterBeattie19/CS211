@@ -6,8 +6,4 @@ public class Node {
     this.data = n;
     this.c = c;
   }
-
-  public int getKey(){
-    return this.data; 
-  }
 }
