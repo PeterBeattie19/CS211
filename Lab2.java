@@ -11,7 +11,15 @@ public class Lab2{
 		int freq[] = new int[256]; 
 
 		for(int i = 0; i<sentence.length(); i++){
-			System.out.print(Integer.toBinaryString((int)sentence.charAt(i)) +" "); 
+			
+			String temp = Integer.toBinaryString((int)sentence.charAt(i)); 
+			if(temp.length() == 5)
+				temp = "00" + temp; 
+			
+			if(temp.length() == 6)
+				temp = "0" + temp;
+			
+			System.out.print(temp +" "); 
 			freq[(int)sentence.charAt(i)]++; 
 
 			if(i%6 == 0 && i!=0)
