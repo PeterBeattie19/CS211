@@ -1,5 +1,6 @@
 import java.util.*; 
 import java.io.*; 
+//Not hackerRank solition 
 
 public class HuffManCompressor {
 	public static void main (String args[]) throws IOException{
