@@ -1,6 +1,7 @@
 import java.util.*; 
 import java.io.*; 
 //Not hackerRank solition 
+//Non deterministic
 
 public class HuffManCompressor {
 	public static void main (String args[]) throws IOException{
