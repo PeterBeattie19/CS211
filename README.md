@@ -1,4 +1,4 @@
-# CS211 \n
+# CS211 "\n"
 Data Structures and Algorithms 2 \n
 
 Lab 0 - VertCoin wallet \n
