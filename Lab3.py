@@ -1,19 +1,5 @@
-def findGreatestChar(s):
-    l = s[0]
+compare = lambda s1, s2: s1<s2 if max(s1)==max(s2) else max(s1)<max(s2) 
 
-    for i in s[1:]:
-        if i > l:
-            l = i
-    return l
-
-def compare(s1,s2):
-    L1 = findGreatestChar(s1)
-    L2 = findGreatestChar(s2)
-
-    if L1==L2:
-        return s1 < s2
-    
-    return L1 <= L2
             
 
 def quicksort(x):
@@ -39,6 +25,9 @@ def quicksort(x):
 arr = raw_input().split()
 
 arr = quicksort(arr)
+
+sort = lambda s1,s2: max(s1) < max(s2) 
+
 
 for i in arr:
     print i,
