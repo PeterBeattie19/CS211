@@ -6,3 +6,4 @@ Lab 1 - Huff Man Coding part 1
 Lab 2 - Huff Man Coding part 2	
 Lab 3 - Quick Sort Strings
 Lab 4 - Boggle Board Solver
+Lab 5 - Text to Morse Code Audio
