@@ -9,3 +9,4 @@ Lab 4 - Boggle Board Solver
 Lab 5 - Text to Morse Code Audio
 Lab 6 - Public Key Crypto 
 Lab 7 - Min Collisions 
+Lab 8 - Distance from Maynooth to Korea
